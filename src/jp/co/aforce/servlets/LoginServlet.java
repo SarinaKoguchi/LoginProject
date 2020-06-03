@@ -58,7 +58,7 @@ public class LoginServlet extends HttpServlet {
 			List<UserBean> users = userModel.getAllUsers();
 
 			// ログインユーザ情報を取得
-			List<UserBean> loginUser = userModel.getLoginUser(username, password);
+			UserBean loginUser = userModel.getLoginUser(username, password);
 
 			// リクエストオブジェクトに設定
 			request.setAttribute("users", users);

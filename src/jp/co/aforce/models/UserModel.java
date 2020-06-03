@@ -43,9 +43,9 @@ public class UserModel {
 	}
 
 	// ログインユーザ情報取得
-	public List<UserBean> getLoginUser(String username, String password) {
+	public UserBean getLoginUser(String username, String password) {
 		ResultSet rs = null;
-		List<UserBean> loginUser = new ArrayList<UserBean>();
+		UserBean loginUser = new UserBean();
 
 		try {
 			// DBに接続するための手続
@@ -53,15 +53,14 @@ public class UserModel {
 			DBUtil.makeStatement();
 
 			// SQLを実行
-			String SQL = "SELECT `username`,`gender`,`address` FROM `users` WHERE `username` = '"+username+"' AND `password` = '"+password+"'";
+			String SQL = "SELECT `username`,`gender`,`address` FROM `users` WHERE `username` = '" + username
+					+ "' AND `password` = '" + password + "'";
 			rs = DBUtil.execute(SQL);
 
-				/* データを取得 */
-				UserBean userBean = new UserBean();
-				userBean.setUsername(rs.getString("username"));
-				userBean.setGender(rs.getString("gender"));
-				userBean.setAddress(rs.getString("address"));
-				loginUser.add(userBean);
+			/* データを取得 */
+			loginUser.setUsername(rs.getString("username"));
+			loginUser.setGender(rs.getString("gender"));
+			loginUser.setAddress(rs.getString("address"));
 
 		} catch (Exception e) {
 			e.printStackTrace();
