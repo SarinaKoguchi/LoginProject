@@ -2,8 +2,16 @@
 
 body {
 	text-align: center;
+	background: #F3EBF6;
 }
 
-div {
+.form {
+	box-shadow: 0 0 10px 0 #ccc;
+	background: white;
+	margin: 100px 200px;
+	padding: 20px;
+}
+
+.emsg {
 	color: red;
 }

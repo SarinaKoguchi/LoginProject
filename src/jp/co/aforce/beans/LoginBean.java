@@ -1,5 +1,3 @@
-//
-
 package jp.co.aforce.beans;
 
 import java.io.Serializable;
